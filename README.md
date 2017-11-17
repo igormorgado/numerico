@@ -16,7 +16,11 @@ Para bibliotecas eficientes veja: ... TODO
 INSTALAR
 --------
 
+```
 git clone https://github.com/igormorgado/numerico.git numerico
+
 pip install numerico
+```
+
 
 Jan 2017
