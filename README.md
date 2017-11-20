@@ -10,7 +10,7 @@ Tambem pode ser utilizada para estudar os metodos em sala de aula.
 
 Ainda esta em estagio completamente BETA
 
-Para bibliotecas eficientes veja: ... TODO
+Para bibliotecas eficientes veja:  numpy, scipy
 
 
 INSTALAR

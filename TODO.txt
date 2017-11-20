@@ -1,2 +1,28 @@
-Interpolacao de Lagrange
 Fazer todas as bibliotecas conversarem de forma limpa
+Integracao
+Diferencas finitas
+Interpolacao de Lagrange
+
+# NAIVE
+def lagrange(x,y):
+	f=0
+	n = len(x)
+	for i in range(len(x)):
+		f += lagrange_weight(x,i) * y[i]
+
+def lagrange_weight(x,i):
+	n = len(x)
+	l = 1
+	for j in range(len(x)):
+		if j == i: 
+			continue
+		l *= (x-x[j]) / (x[i]-x[j])
+
+	
+	return l
+		
+		
+		
+
+
+
