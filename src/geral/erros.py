@@ -2,16 +2,7 @@ import math
 import bitstring
 import matplotlib as mpl
 import matplotlib.pyplot as plt
-
-
-# 'double' means IEEE 754 double precision -- c 'double'
-eps=1e-7
-epsilon = math.ldexp(1.0, -53)  # smallest double that 0.5+epsilon != 0.5
-maxDouble = float(2**1024 - 2**971)  # From the IEEE 754 standard
-minDouble = math.ldexp(1.0, -1022)  # min positive normalized double
-smallEpsilon = math.ldexp(1.0, -1074)  # smallest increment for doubles < minFloat
-infinity = math.ldexp(1.0, 1023) * 2
-
+from erros import eps
 
 
 def err_PF(n, x):
@@ -54,11 +45,6 @@ def err_plot(n, x, title=None):
     return result
 
 
-def comozero(z, precisao=eps):
-    """Verifica se um valor e menor que a precisao numerica da maquina"""
-    return abs(z) < precisao
-
-
 def erro_local(l):
     """Retorna a lista com o gradiente por iteracao"""
     result = []
@@ -81,6 +67,13 @@ def err_step(n, x):
     """Gera o gráfico dos erros para cada iteração
     """
 
+
+# 'double' means IEEE 754 double precision -- c 'double'
+epsilon = math.ldexp(1.0, -53)  # smallest double that 0.5+epsilon != 0.5
+maxDouble = float(2**1024 - 2**971)  # From the IEEE 754 standard
+minDouble = math.ldexp(1.0, -1022)  # min positive normalized double
+smallEpsilon = math.ldexp(1.0, -1074)  # smallest increment for doubles < minFloat
+infinity = math.ldexp(1.0, 1023) * 2
 
 
 def nextafter(x, y):
@@ -118,9 +111,3 @@ def reprbin(x):
     b = bitstring.pack('>d', x)
     s, w, p = b[:1], b[1:12], b[12:]
     return s, w, p
-
-
-def e_escalar(n):
-    """Verifica se o item e' um escalar"""
-    return isinstance(n, types.IntType) or isinstance(n, types.FloatType) or isinstance(n, types.ComplexType)
-
