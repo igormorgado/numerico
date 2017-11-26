@@ -4,7 +4,7 @@ setup(
     name = 'numerico',
     packages = find_packages(), 
     version = '0.0.1',
-    install_requires = [ 'numpy' ],
+    install_requires = [ 'numpy', 'bitstring' ],
     description = 'Metodos numericos para todos',
     url = 'http://github.com/igormorgado/numerico',
     license = 'GNU/GPLv2',
